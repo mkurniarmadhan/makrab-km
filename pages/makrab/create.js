@@ -112,7 +112,7 @@ const Create = () => {
           <Select
             defaultValue={selectedKeterangan}
             onChange={setSelectedKeterangan}
-            options={options}
+            options={keterangan}
             {...setValue("keterangan", selectedKeterangan.value)}
           />
           {errors.keterangan && (
