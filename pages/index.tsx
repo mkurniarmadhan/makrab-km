@@ -3,7 +3,7 @@ import useSWR from 'swr';
 import Layout from '../components/layout';
 import DataRow from '../components/data-row';
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = (url: RequestInfo | URL) => fetch(url).then((r) => r.json());
 
 const Home = () => {
   const { data, error } = useSWR('/api/peserta', fetcher);
@@ -24,22 +24,22 @@ const Home = () => {
           <h4 className="creditCard">Catatan</h4>
         </div>
         {data ? (
-          data.map((d) => (
+          data.map((d: { ref: { [x: string]: { id: any; }; }; data: { nama: any; lembaga: any; keterangan: any; catatan: any; }; }) => (
             <DataRow
               key={d.ref['@ref'].id}
               id={d.ref['@ref'].id}
               nama={d.data.nama}
               lembaga={d.data.lembaga}
               keterangan={d.data.keterangan}
-              catatan={d.data.catatan}
-            />
+              catatan={d.data.catatan} loading={undefined}            />
           ))
         ) : (
           <>
-            <DataRow loading />
-            <DataRow loading />
-            <DataRow loading />
-            <DataRow loading />
+            <DataRow loading id={undefined} nama={undefined} lembaga={undefined} keterangan={undefined} catatan={undefined} />
+            <DataRow loading id={undefined} nama={undefined} lembaga={undefined} keterangan={undefined} catatan={undefined} />
+            <DataRow loading id={undefined} nama={undefined} lembaga={undefined} keterangan={undefined} catatan={undefined} />
+            <DataRow loading id={undefined} nama={undefined} lembaga={undefined} keterangan={undefined} catatan={undefined} />
+           
           </>
         )}
       </div>
