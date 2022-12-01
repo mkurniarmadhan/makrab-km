@@ -7,6 +7,7 @@ import Select from "react-select";
 const Create = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [selectedOption, setSelectedOption] = useState(" ");
+  const [selectedKeterangan, setSelectedKeterangan] = useState("LUNAS");
 
   const {
     handleSubmit,
@@ -52,6 +53,10 @@ const Create = () => {
     { value: "Hima SI", label: "Hima SI" },
     { value: "KMK", label: "KMK" },
   ];
+  const keterangan = [
+    { value: "LUNAS", label: "LUNAS" },
+    { value: "BELUM LUNAS", label: "BELUM LUNAS" },
+  ];
 
   return (
     <Layout>
@@ -62,7 +67,6 @@ const Create = () => {
           <label>Nama</label>
           <input
             type="text"
-            placeholder="amar"
             {...register("nama", { required: "nama wajib di isi" })}
           />
           {errors.nama && (
@@ -86,6 +90,7 @@ const Create = () => {
           )}
         </div> */}
         <input hidden {...register("lembaga")} />
+        <input hidden {...register("keterangan")} />
 
         <div>
           <label>Lembaga</label>
@@ -104,13 +109,28 @@ const Create = () => {
 
         <div>
           <label>Keterangan</label>
-          <input type="text" placeholder="Lunas" {...register("keterangan")} />
+          <Select
+            defaultValue={selectedKeterangan}
+            onChange={setSelectedKeterangan}
+            options={options}
+            {...setValue("keterangan", selectedKeterangan.value)}
+          />
           {errors.keterangan && (
             <span role="alert" className="error">
               {errors.keterangan.message}
             </span>
           )}
         </div>
+
+        {/* <div>
+          <label>Keterangan</label>
+          <input type="text" placeholder="Lunas" {...register("keterangan")} />
+          {errors.keterangan && (
+            <span role="alert" className="error">
+              {errors.keterangan.message}
+            </span>
+          )}
+        </div> */}
 
         <div>
           <label>Catatan</label>
