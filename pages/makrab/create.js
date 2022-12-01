@@ -39,8 +39,18 @@ const Create = () => {
 
   const options = [
     { value: "BEM", label: "BEM" },
-    { value: "EMB", label: "EMB" },
     { value: "DPM", label: "DPM" },
+    { value: "Himatekkom", label: "Himatekkom" },
+    { value: "Himaraksi", label: "Himaraksi" },
+    { value: "Himaforka", label: "Himaforka" },
+    { value: "Ukm Wamika", label: "Ukm Wamika" },
+    { value: "TK S1", label: "TK S1" },
+    { value: "Manajemen ritel", label: "Manajemen ritel" },
+    { value: "Bisdig", label: "Bisdig" },
+    { value: "UKM IKA", label: "UKM IKA" },
+    { value: "Hima SIA", label: "Hima SIA" },
+    { value: "Hima SI", label: "Hima SI" },
+    { value: "KMK", label: "KMK" },
   ];
 
   return (
